@@ -5,7 +5,7 @@
 -- =====================================================================
 
 -- ---------------------------------------------------------------------
--- Sign-up: UNSW emails only, and every new account gets a profile row.
+-- Sign-up: Australian university emails (.edu.au) only, and every new account gets a profile row.
 -- ---------------------------------------------------------------------
 
 create or replace function public.handle_new_user()
@@ -16,8 +16,8 @@ declare
 begin
   -- Guests (anonymous demo sessions) are allowed; real accounts must be UNSW.
   if not coalesce(new.is_anonymous, false) and (new.email is null
-     or not (new.email ilike '%@unsw.edu.au' or new.email ilike '%.unsw.edu.au' or new.email ilike '%@pool.demo')) then
-    raise exception 'Pool is only open to UNSW students (use your UNSW email).';
+     or not (new.email ilike '%.edu.au' or new.email ilike '%@pool.demo')) then
+    raise exception 'Thrive is only open to university students (use your .edu.au email).';
   end if;
   -- Microsoft (UNSW) sign-in brings the student's real name; email sign-up doesn't.
   v_name := nullif(trim(coalesce(new.raw_user_meta_data->>'full_name', new.raw_user_meta_data->>'name', '')), '');

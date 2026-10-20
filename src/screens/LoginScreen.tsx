@@ -44,7 +44,7 @@ export const LoginScreen: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [checkInbox, setCheckInbox] = useState(false);
-  const [showEmail, setShowEmail] = useState(Platform.OS !== 'web');
+  const [showEmail, setShowEmail] = useState(true);
 
   // Coming back from Microsoft with an error (e.g. a non-UNSW account)?
   useEffect(() => {
@@ -113,12 +113,14 @@ export const LoginScreen: React.FC = () => {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
       <Image source={require('../../assets/logo_dark.png')} style={styles.logo} resizeMode="contain" />
-      <Text style={styles.title}>Make the first move{'\n'}without making it.</Text>
+      <Text style={styles.title}>Don’t just survive in uni.</Text>
+      <Text style={[styles.title, { color: THEME.colors.successGreen, fontSize: 34, marginTop: -6 }]}>THRIVE in uni.</Text>
+      <Text style={styles.tagline}>Belonging first, opportunity follows.</Text>
 
       <View style={styles.pillsRow}>
         <View style={styles.pill}>
           <Ionicons name="shield-checkmark" size={14} color={THEME.colors.deepTeal} />
-          <Text style={styles.pillText}>UNSW only</Text>
+          <Text style={styles.pillText}>Uni students only</Text>
         </View>
         <View style={styles.pill}>
           <Ionicons name="eye-off" size={14} color={THEME.colors.deepTeal} />
@@ -134,7 +136,7 @@ export const LoginScreen: React.FC = () => {
         </View>
       </View>
 
-      {Platform.OS === 'web' && !checkInbox && (
+      {false && Platform.OS === 'web' && !checkInbox && ( /* uni SSO hidden: email + guest only for now */
         <>
           <TouchableOpacity
             style={[styles.msButton, pending !== null && { opacity: 0.6 }]}
@@ -163,7 +165,7 @@ export const LoginScreen: React.FC = () => {
       {!showEmail && !checkInbox ? null : checkInbox ? (
         <View style={styles.inboxBox}>
           <Ionicons name="mail-unread" size={32} color={THEME.colors.deepTeal} />
-          <Text style={styles.inboxTitle}>Check your UNSW inbox</Text>
+          <Text style={styles.inboxTitle}>Check your uni inbox</Text>
           <Text style={styles.inboxSub}>Tap the link we sent to {email.trim()}, then log in.</Text>
           <TouchableOpacity
             onPress={() => {
@@ -203,7 +205,7 @@ export const LoginScreen: React.FC = () => {
             <Ionicons name="mail-outline" size={18} color={THEME.colors.textMuted} />
             <TextInput
               style={styles.input}
-              placeholder="zID@ad.unsw.edu.au"
+              placeholder="you@student.uni.edu.au"
               placeholderTextColor={THEME.colors.textMuted}
               value={email}
               onChangeText={setEmail}
@@ -270,7 +272,7 @@ export const LoginScreen: React.FC = () => {
         onPress={guest}
         disabled={pending !== null}
         activeOpacity={0.85}
-        accessibilityLabel="Try Pool as a guest"
+        accessibilityLabel="Try Thrive as a guest"
       >
         <View style={styles.guestIcon}>
           <Ionicons name="sparkles" size={20} color="#FFFFFF" />
@@ -326,14 +328,20 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   logo: {
-    width: 110,
-    height: 40,
+    width: 150,
+    height: 48,
     marginBottom: 20,
+  },
+  tagline: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: THEME.colors.deepTeal,
+    marginTop: 6,
   },
   title: {
     fontSize: 30,
     fontWeight: '800',
-    color: THEME.colors.textPrimary,
+    color: THEME.colors.deepTeal,
     letterSpacing: -0.6,
     lineHeight: 36,
   },

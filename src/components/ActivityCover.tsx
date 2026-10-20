@@ -10,7 +10,7 @@ type IconName = keyof typeof Ionicons.glyphMap;
 // Each kind of place gets its own colour story.
 const PALETTE: Record<Category, [string, string, string]> = {
   quiet: ['#0B4F5A', '#12808A', '#5FD3C9'],
-  food: ['#E8551C', '#F7942E', '#FFD27A'],
+  food: ['#E8551C', '#E3173E', '#FFD27A'],
   social: ['#5B21B6', '#8B5CF6', '#F0ABFC'],
   active: ['#0F766E', '#16A34A', '#BEF264'],
   maker: ['#1E3A8A', '#2563EB', '#93C5FD'],

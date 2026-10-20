@@ -12,7 +12,7 @@ type IconName = keyof typeof Ionicons.glyphMap;
 const PLACE: Record<ActivityCard['category'], string> = {
   quiet: 'A quiet study spot on campus',
   social: 'A social spot on campus',
-  active: 'UNSW sports centre',
+  active: 'Campus sports centre',
   maker: 'The Makerspace',
   food: 'A campus café',
 };

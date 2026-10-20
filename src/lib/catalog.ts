@@ -60,7 +60,7 @@ export const DEGREES: { label: string; short: string; icon: IconName }[] = [
   { label: 'Design', short: 'DESN', icon: 'color-palette' },
   { label: 'Arts', short: 'ARTS', icon: 'brush' },
   { label: 'Psychology', short: 'PSYC', icon: 'happy' },
-  { label: 'Something else', short: 'UNSW', icon: 'school' },
+  { label: 'Something else', short: 'Uni', icon: 'school' },
 ];
 
 // Courses grouped by faculty, then by 4-letter subject prefix. Not exhaustive —

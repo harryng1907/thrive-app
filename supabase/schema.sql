@@ -34,8 +34,8 @@ create table public.profiles (
   full_name     text,
   initials      text not null,
   avatar_color  text not null default '#0E5B66',
-  degree        text not null default 'UNSW student',
-  degree_short  text not null default 'UNSW',
+  degree        text not null default 'Uni student',
+  degree_short  text not null default 'Uni',
   year          smallint not null default 1,
   vibe          text,          -- free-text "how do you like to hang out / study"
   status_quote  text,          -- shown to squad-mates after reveal

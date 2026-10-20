@@ -366,7 +366,7 @@ const styles = StyleSheet.create({
   },
   memberBadgeBoxUser: {
     backgroundColor: THEME.colors.primaryOrangeLight,
-    borderColor: '#FED7AA',
+    borderColor: '#CFF2BD',
   },
   memberBadgeHeader: {
     flexDirection: 'row',
@@ -435,7 +435,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     borderRadius: THEME.radii.tag,
     borderWidth: 1,
-    borderColor: '#FED7AA',
+    borderColor: '#CFF2BD',
   },
   fitBadgeText: {
     fontSize: 12,
@@ -621,7 +621,7 @@ const styles = StyleSheet.create({
     color: THEME.colors.deepTealDark,
   },
   aiQuote: {
-    backgroundColor: '#FFF8F1',
+    backgroundColor: '#FEFAEE',
     borderRadius: 14,
     padding: 12,
     marginBottom: 12,

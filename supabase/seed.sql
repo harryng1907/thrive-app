@@ -18,14 +18,14 @@ insert into public.venues (id, name, detail, category) values
   ('lawlib-l2',   'Law Library, Level 2',        'Silent study booths',        'quiet'),
   ('mainlib-l3',  'Main Library, Level 3',       'Bookable group pods',        'quiet'),
   ('mainlib-l4',  'Main Library, Level 4',       'Quiet zone · Pod 4B',        'quiet'),
-  ('k17-lab',     'K17 Building, Ground Floor',  'CSE lab benches',            'quiet'),
-  ('roundhouse',  'The Roundhouse',              'Beer garden tables',         'social'),
+  ('k17-lab',     'Computing Building, Ground Floor', 'Lab benches',            'quiet'),
+  ('roundhouse',  'Student Bar',                 'Beer garden tables',         'social'),
   ('library-lawn','Library Lawn',                'Under the big fig tree',     'social'),
-  ('ufac',        'UNSW Fitness & Aquatic Centre','Sports hall, courts 1–3',   'active'),
-  ('makerspace',  'Makerspace, Ainsworth Building','Workbenches & laser cutter','maker'),
+  ('ufac',        'Campus Sports Centre',       'Sports hall, courts 1–3',   'active'),
+  ('makerspace',  'Engineering Makerspace',     'Workbenches & laser cutter','maker'),
   ('quad-food',   'Quadrangle Food Court',       'Upstairs window tables',     'food'),
-  ('gongcha',     'Gong Cha, Upper Campus',      'Corner booth',               'food'),
-  ('esmes',       'Esme''s, Arc Precinct',       'Couches by the window',      'food');
+  ('gongcha',     'Bubble tea, Upper Campus',   'Corner booth',               'food'),
+  ('esmes',       'Campus Café, Student Hub',   'Couches by the window',      'food');
 
 -- ---------------------------------------------------------------------
 -- Activities (sessions recur weekly; get_deck rolls past ones forward)

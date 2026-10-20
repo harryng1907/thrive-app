@@ -1,4 +1,4 @@
--- Thrive: full database setup. Paste into Supabase → SQL Editor → Run (once, on an empty project).
+-- Thrive: full database setup. Paste into Supabase → SQL Editor → Run. Safe to re-run (rebuilds tables + demo data).
 
 -- ===== supabase/schema.sql =====
 -- =====================================================================
@@ -37,8 +37,8 @@ create table public.profiles (
   full_name     text,
   initials      text not null,
   avatar_color  text not null default '#0E5B66',
-  degree        text not null default 'UNSW student',
-  degree_short  text not null default 'UNSW',
+  degree        text not null default 'Uni student',
+  degree_short  text not null default 'Uni',
   year          smallint not null default 1,
   vibe          text,          -- free-text "how do you like to hang out / study"
   status_quote  text,          -- shown to squad-mates after reveal
@@ -257,7 +257,7 @@ create policy "avatar delete own folder" on storage.objects for delete to authen
 -- =====================================================================
 
 -- ---------------------------------------------------------------------
--- Sign-up: UNSW emails only, and every new account gets a profile row.
+-- Sign-up: Australian university emails (.edu.au) only, and every new account gets a profile row.
 -- ---------------------------------------------------------------------
 
 create or replace function public.handle_new_user()
@@ -268,8 +268,8 @@ declare
 begin
   -- Guests (anonymous demo sessions) are allowed; real accounts must be UNSW.
   if not coalesce(new.is_anonymous, false) and (new.email is null
-     or not (new.email ilike '%@unsw.edu.au' or new.email ilike '%.unsw.edu.au' or new.email ilike '%@pool.demo')) then
-    raise exception 'Pool is only open to UNSW students (use your UNSW email).';
+     or not (new.email ilike '%.edu.au' or new.email ilike '%@pool.demo')) then
+    raise exception 'Thrive is only open to university students (use your .edu.au email).';
   end if;
   -- Microsoft (UNSW) sign-in brings the student's real name; email sign-up doesn't.
   v_name := nullif(trim(coalesce(new.raw_user_meta_data->>'full_name', new.raw_user_meta_data->>'name', '')), '');
@@ -1695,14 +1695,14 @@ insert into public.venues (id, name, detail, category) values
   ('lawlib-l2',   'Law Library, Level 2',        'Silent study booths',        'quiet'),
   ('mainlib-l3',  'Main Library, Level 3',       'Bookable group pods',        'quiet'),
   ('mainlib-l4',  'Main Library, Level 4',       'Quiet zone · Pod 4B',        'quiet'),
-  ('k17-lab',     'K17 Building, Ground Floor',  'CSE lab benches',            'quiet'),
-  ('roundhouse',  'The Roundhouse',              'Beer garden tables',         'social'),
+  ('k17-lab',     'Computing Building, Ground Floor', 'Lab benches',            'quiet'),
+  ('roundhouse',  'Student Bar',                 'Beer garden tables',         'social'),
   ('library-lawn','Library Lawn',                'Under the big fig tree',     'social'),
-  ('ufac',        'UNSW Fitness & Aquatic Centre','Sports hall, courts 1–3',   'active'),
-  ('makerspace',  'Makerspace, Ainsworth Building','Workbenches & laser cutter','maker'),
+  ('ufac',        'Campus Sports Centre',       'Sports hall, courts 1–3',   'active'),
+  ('makerspace',  'Engineering Makerspace',     'Workbenches & laser cutter','maker'),
   ('quad-food',   'Quadrangle Food Court',       'Upstairs window tables',     'food'),
-  ('gongcha',     'Gong Cha, Upper Campus',      'Corner booth',               'food'),
-  ('esmes',       'Esme''s, Arc Precinct',       'Couches by the window',      'food');
+  ('gongcha',     'Bubble tea, Upper Campus',   'Corner booth',               'food'),
+  ('esmes',       'Campus Café, Student Hub',   'Couches by the window',      'food');
 
 -- ---------------------------------------------------------------------
 -- Activities (sessions recur weekly; get_deck rolls past ones forward)

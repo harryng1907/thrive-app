@@ -30,10 +30,10 @@ const calendarUrl = (squad: Squad) => {
   const names = squad.members.filter((m) => !m.is_me && !m.hidden).map((m) => m.name).join(', ');
   const params = new URLSearchParams({
     action: 'TEMPLATE',
-    text: `Pool: ${squad.activity.title}`,
+    text: `Thrive: ${squad.activity.title}`,
     dates: `${stamp(squad.starts_at)}/${stamp(squad.ends_at)}`,
-    location: `${squad.venue.name}, UNSW Kensington`,
-    details: [`Your Pool squad${names ? ` with ${names}` : ''}.`, ...squad.reasons].join('\n'),
+    location: `${squad.venue.name}, campus`,
+    details: [`Your Thrive squad${names ? ` with ${names}` : ''}.`, ...squad.reasons].join('\n'),
   });
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 };
@@ -151,7 +151,7 @@ export const ConfirmedScreen: React.FC<ConfirmedScreenProps> = ({
       <View style={styles.squadSection}>
         <View style={styles.squadSectionHeader}>
           <Text style={styles.squadSectionTitle}>Your Squad ({accepted.length})</Text>
-          <Text style={styles.squadSectionSub}>UNSW verified</Text>
+          <Text style={styles.squadSectionSub}>Uni verified</Text>
         </View>
 
         <View style={styles.membersList}>
@@ -224,7 +224,7 @@ export const ConfirmedScreen: React.FC<ConfirmedScreenProps> = ({
         <View style={styles.trustBanner}>
           <Text style={styles.trustShield}>🛡️</Text>
           <Text style={styles.trustText}>
-            Public campus venue. Everyone is a verified UNSW student. You can only message people in this squad.
+            Public campus venue. Everyone is a verified university student. You can only message people in this squad.
           </Text>
         </View>
       </View>
@@ -473,8 +473,8 @@ const styles = StyleSheet.create({
     ...THEME.shadows.card,
   },
   userMemberCard: {
-    borderColor: '#FED7AA',
-    backgroundColor: '#FFFAF6',
+    borderColor: '#CFF2BD',
+    backgroundColor: '#FEFAEE',
   },
   memberAvatar: {
     width: 44,
@@ -643,7 +643,7 @@ const styles = StyleSheet.create({
     marginTop: 6,
   },
   aiQuote: {
-    backgroundColor: '#FFF8F1',
+    backgroundColor: '#FEFAEE',
     borderRadius: 14,
     padding: 12,
     marginBottom: 12,

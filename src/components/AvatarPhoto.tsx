@@ -2,8 +2,8 @@ import React from 'react';
 import { Image, StyleSheet } from 'react-native';
 
 // Drop inside any round initials avatar: covers the initials when there's a photo.
-export const AvatarPhoto: React.FC<{ url?: string | null }> = ({ url }) =>
-  url ? <Image source={{ uri: url }} style={styles.photo} accessibilityIgnoresInvertColors /> : null;
+// Thrive keeps data minimal: no profile photos, initials only (photos are never shown).
+export const AvatarPhoto: React.FC<{ url?: string | null }> = () => null;
 
 const styles = StyleSheet.create({
   photo: {

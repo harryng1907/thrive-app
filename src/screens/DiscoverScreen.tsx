@@ -143,7 +143,7 @@ export const DiscoverScreen: React.FC<DiscoverScreenProps> = ({
           </View>
           <View style={{ flex: 1 }}>
             <Text style={styles.nudgeTitle}>
-              {isWeekend() ? "Weekend's here! " : ''}Go again with {nudge.names.join(' & ')}?
+              {isWeekend() ? "Weekend's here! " : ''}Re-Thrive with {nudge.names.join(' & ')}?
             </Text>
             <Text style={styles.nudgeSub}>
               You rated them {nudge.top_score}★ after {nudge.activity_title}
@@ -245,7 +245,7 @@ export const DiscoverScreen: React.FC<DiscoverScreenProps> = ({
                   {card.interested_count > 0 && (
                     <View style={styles.coverBottom}>
                       <View style={styles.darkPill}>
-                        <Ionicons name="flame" size={13} color="#FDBA74" />
+                        <Ionicons name="flame" size={13} color="#8EEA5E" />
                         <Text style={styles.darkPillText}>{card.interested_count} in</Text>
                       </View>
                     </View>
@@ -518,7 +518,7 @@ const styles = StyleSheet.create({
   spotTagPill: {
     backgroundColor: THEME.colors.primaryOrangeLight,
     borderWidth: 1,
-    borderColor: '#FED7AA',
+    borderColor: '#CFF2BD',
   },
   tagText: {
     fontSize: 12,

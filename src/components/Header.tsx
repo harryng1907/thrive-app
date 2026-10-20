@@ -43,12 +43,12 @@ export const Header: React.FC<HeaderProps> = ({
         ) : (
           <View style={styles.logoBadgeContainer}>
             <Image
-              source={require('../../assets/logo_dark.png')}
+              source={require('../../assets/icon.png')}
               style={styles.logoImage}
               resizeMode="contain"
             />
             <View style={styles.campusTag}>
-              <Text style={styles.campusText}>UNSW</Text>
+              <Text style={styles.campusText}>Uni</Text>
             </View>
           </View>
         )}

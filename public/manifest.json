@@ -1,10 +1,10 @@
 {
-  "name": "Pool",
-  "short_name": "Pool",
-  "description": "Swipe on things you would do, not people. Get a squad of 2-4 UNSW students with a time and a place.",
+  "name": "Thrive",
+  "short_name": "Thrive",
+  "description": "Don't just survive in uni. Thrive in uni. Swipe on activities, not people, and meet in a small squad of 2-4 students at a set time and public campus place.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#F9F9F6",
+  "background_color": "#FEFAEE",
   "theme_color": "#0D1A2A",
   "icons": [
     { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },

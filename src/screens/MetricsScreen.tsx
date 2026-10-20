@@ -89,7 +89,7 @@ export const MetricsScreen: React.FC<MetricsScreenProps> = () => {
           <View style={styles.tiles}>
             <Tile label="Weekly active" value={String(data.totals.weekly_active)} />
             <Tile label="Squads formed" value={String(data.totals.squads)} />
-            <Tile label="Avg 'go again'" value={data.totals.avg_member_rating ? `${data.totals.avg_member_rating}★` : '—'} />
+            <Tile label="Avg 'Re-Thrive'" value={data.totals.avg_member_rating ? `${data.totals.avg_member_rating}★` : '—'} />
             <Tile label="Avg venue" value={data.totals.avg_venue_rating ? `${data.totals.avg_venue_rating}★` : '—'} />
           </View>
 

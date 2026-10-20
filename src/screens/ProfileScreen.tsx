@@ -170,9 +170,6 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({
           <View style={[styles.avatarBig, { backgroundColor: me.avatar_color }]}>
             <Text style={styles.avatarBigText}>{me.initials}</Text>
             <AvatarPhoto url={me.avatar_url} />
-            <TouchableOpacity style={styles.cameraBtn} onPress={onChangePhoto} disabled={busy} accessibilityLabel="Change profile photo">
-              <Ionicons name="camera" size={13} color="#FFFFFF" />
-            </TouchableOpacity>
             <View style={styles.verifiedBadge}>
               <Ionicons name="checkmark" size={12} color="#FFFFFF" />
             </View>
@@ -181,7 +178,7 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({
             <View style={styles.nameRow}>
               <Text style={styles.studentName}>{me.full_name ?? me.name}</Text>
               <View style={styles.unswTag}>
-                <Text style={styles.unswTagText}>UNSW</Text>
+                <Text style={styles.unswTagText}>Uni</Text>
               </View>
             </View>
             <Text style={styles.degreeText}>
@@ -606,7 +603,7 @@ const styles = StyleSheet.create({
   demoBadgeText: {
     fontSize: 10,
     fontWeight: '800',
-    color: '#F57C2A',
+    color: '#E3173E',
     letterSpacing: 0.8,
   },
   demoLogo: {

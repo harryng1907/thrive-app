@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     borderRadius: 38,
     backgroundColor: THEME.colors.primaryOrangeLight,
     borderWidth: 2,
-    borderColor: '#FED7AA',
+    borderColor: '#CFF2BD',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 20,

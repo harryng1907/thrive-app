@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     backgroundColor: THEME.colors.cardWhite, borderRadius: 20, padding: 16, marginBottom: 12,
     borderWidth: 1, borderColor: THEME.colors.border, ...THEME.shadows.card,
   },
-  cardFirst: { borderColor: '#FED7AA', borderWidth: 2 },
+  cardFirst: { borderColor: '#CFF2BD', borderWidth: 2 },
   cardTop: { flexDirection: 'row', gap: 12 },
   iconBox: {
     width: 48, height: 48, borderRadius: 14, backgroundColor: THEME.colors.primaryOrangeLight,
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
   error: { color: '#DC2626', marginTop: 16 },
   own: {
     flexDirection: 'row', alignItems: 'center', gap: 12, padding: 16, borderRadius: 20, marginBottom: 12,
-    borderWidth: 2, borderStyle: 'dashed', borderColor: '#FDBA74', backgroundColor: THEME.colors.primaryOrangeLight,
+    borderWidth: 2, borderStyle: 'dashed', borderColor: '#8EEA5E', backgroundColor: THEME.colors.primaryOrangeLight,
   },
   ownIcon: {
     width: 44, height: 44, borderRadius: 22, backgroundColor: THEME.colors.primaryOrange,

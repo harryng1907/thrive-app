@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Pool",
-    "slug": "pool-app",
+    "name": "Thrive",
+    "slug": "thrive-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -20,11 +20,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png",
-      "name": "Pool",
-      "shortName": "Pool",
-      "themeColor": "#F57C2A",
-      "backgroundColor": "#F9F9F6",
-      "description": "Swipe on things you would do, not people. Get a squad of 2-4 UNSW students with a time and a place."
+      "name": "Thrive",
+      "shortName": "Thrive",
+      "themeColor": "#0C5B3C",
+      "backgroundColor": "#FEFAEE",
+      "description": "Don't just survive in uni. Thrive in uni. Swipe on activities, not people, and meet in a small squad of 2-4 students at a set time and public campus place."
     },
     "plugins": [
       "expo-font"

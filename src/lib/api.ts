@@ -25,14 +25,14 @@ export async function signInDemo(email: string) {
   if (error) throw new Error(error.message);
 }
 
-const UNSW_EMAIL = /@([a-z0-9-]+\.)*unsw\.edu\.au$/i;
-export const isUnswEmail = (email: string) => UNSW_EMAIL.test(email.trim());
+const UNI_EMAIL = /@([a-z0-9-]+\.)+edu\.au$/i;
+export const isUnswEmail = (email: string) => UNI_EMAIL.test(email.trim()); // any Australian university (.edu.au)
 
 /** Create an account. Returns true if signed in straight away, false if a confirmation email was sent. */
 export class AccountExistsError extends Error {}
 
 export async function signUp(email: string, password: string): Promise<boolean> {
-  if (!isUnswEmail(email)) throw new Error('Use your UNSW email (e.g. z1234567@ad.unsw.edu.au)');
+  if (!isUnswEmail(email)) throw new Error('Use your university email (ending in .edu.au)');
   // Already have an account? Don't send another sign-up email — log in instead.
   const { data: exists } = await supabase.rpc('account_exists', { p_email: email.trim() });
   if (exists) throw new AccountExistsError('You already have an account with this email — log in instead.');
@@ -43,13 +43,13 @@ export async function signUp(email: string, password: string): Promise<boolean> 
       emailRedirectTo: typeof window !== 'undefined' && window.location ? window.location.origin : undefined,
     },
   });
-  if (error) throw new Error(error.message.includes('Database error') ? 'Pool is only open to UNSW emails.' : error.message);
+  if (error) throw new Error(error.message.includes('Database error') ? 'Thrive is only open to university emails (.edu.au).' : error.message);
   return !!data.session;
 }
 
 export async function signIn(email: string, password: string) {
   const { error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
-  if (error) throw new Error(error.message === 'Email not confirmed' ? 'Check your UNSW inbox and confirm your email first.' : error.message);
+  if (error) throw new Error(error.message === 'Email not confirmed' ? 'Check your uni inbox and confirm your email first.' : error.message);
 }
 
 /**
@@ -84,7 +84,7 @@ export function takeAuthRedirectError(): string | null {
   const raw = params.get('error_description') || params.get('error');
   if (!raw) return null;
   window.history.replaceState(null, '', window.location.pathname);
-  if (/database error/i.test(raw)) return 'Pool is only open to UNSW students — use your zID@ad.unsw.edu.au account.';
+  if (/database error/i.test(raw)) return 'Thrive is only open to university students (.edu.au).';
   if (/provider is not enabled|unsupported provider/i.test(raw)) return 'UNSW sign-in isn\'t switched on yet. Use your UNSW email below.';
   if (/admin|consent|approval/i.test(raw)) return 'UNSW needs to approve Pool for Microsoft sign-in. Use your UNSW email below for now.';
   return `Microsoft sign-in didn't finish: ${raw.replace(/\+/g, ' ')}`;

@@ -9,7 +9,7 @@ const tags = `
     <link rel="manifest" href="/manifest.json" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="Pool" />
+    <meta name="apple-mobile-web-app-title" content="Thrive" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 `;
 if (!html.includes('apple-touch-icon')) {

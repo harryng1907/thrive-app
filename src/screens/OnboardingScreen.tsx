@@ -201,7 +201,7 @@ export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ me, editing,
                   >
                     <Ionicons name={d.icon} size={22} color={on ? '#FFFFFF' : THEME.colors.deepTeal} />
                     <Text style={[styles.tileText, on && styles.tileTextOn]} numberOfLines={1}>
-                      {d.short === 'UNSW' ? 'Other' : d.short}
+                      {d.short === 'Uni' ? 'Other' : d.short}
                     </Text>
                   </TouchableOpacity>
                 );
@@ -854,7 +854,7 @@ const styles = StyleSheet.create({
     marginBottom: 14,
   },
   addChip: {
-    borderColor: '#FED7AA',
+    borderColor: '#CFF2BD',
     backgroundColor: THEME.colors.primaryOrangeLight,
   },
   facultyScroll: {
