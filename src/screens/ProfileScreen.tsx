@@ -16,6 +16,7 @@ import { Connection, Me } from '../types';
 import { yearLabel } from '../lib/format';
 import { INTERESTS } from '../lib/catalog';
 import { AvatarPhoto } from '../components/AvatarPhoto';
+import { AppearanceToggle } from '../components/AppearanceToggle';
 
 interface ProfileScreenProps {
   me: Me | null;
@@ -376,6 +377,8 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({
           </View>
         </View>
       </View>
+
+      <AppearanceToggle />
 
       <View style={styles.demoCard}>
         <View style={styles.demoCardHeader}>

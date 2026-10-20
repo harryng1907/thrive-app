@@ -1,4 +1,5 @@
 import './src/fonts';
+import './src/appearance';
 import { registerRootComponent } from 'expo';
 
 import App from './App';
